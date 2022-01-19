@@ -1,4 +1,4 @@
 pytest
 requests
 loguru
-allure
+allure_pytest
