@@ -8,7 +8,7 @@ class DingRobot:
     def __init__(self):
         self.allure = "http://jenkisn5:123456@8.129.214.240:9000/job/wework/allure/widgets/suites.json"
         self.ding = 'https://oapi.dingtalk.com/robot/send?access_token=' \
-                    'a5eb6e38be242dcf3a0ceaa1035a8c3093430de8da7384bf0b710711d4885c49'
+                    '3f7a97e1b19df92bfb87b6d38728c9278c42eb2b4c0d8544b8959e83317f35aa'
         self.error = self.get_allure_error()
 
     def get_allure_error(self):
