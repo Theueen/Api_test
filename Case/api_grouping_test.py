@@ -61,3 +61,4 @@ class TestAiGrouping:
                              ])
     def test_del_group(self, group_name):
         self.group.del_group(group_name)
+
