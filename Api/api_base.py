@@ -20,8 +20,8 @@ class ApiBase:
         r_body = requests.request(**data)
         # print(json.dumps(r_body.json(), indent=4, ensure_ascii=False))
         logger.info(json.dumps(r_body.json(), indent=4, ensure_ascii=False))
-        print(r_body)
-        return r_body.json()
+        # print(r_body)
+        return r_body
 
     def get_token(self):
         """
@@ -33,4 +33,4 @@ class ApiBase:
                'headers': {'Content-Type': 'application/json;charset=UTF-8'},
                'json': {"name": "lsj1", "password": "123123"}
                }
-        return self.send(req).get('access_token')
+        return self.send(req).json().get('access_token')

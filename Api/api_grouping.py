@@ -19,7 +19,7 @@ class AiGrouping(ApiBase):
                         },
                'headers': self.header
                }
-        self.send(req)
+        assert self.send(req).status_code == 200
 
     def create_group(self, group_name):
         """
@@ -32,7 +32,7 @@ class AiGrouping(ApiBase):
                'json': {"name": group_name},
                'headers': self.header
                }
-        self.send(req)
+        assert self.send(req).status_code == 200
 
     def inquire_group_id(self, group_name):
         """
@@ -48,9 +48,9 @@ class AiGrouping(ApiBase):
                           'end_time': '2022-01-14'},
                'headers': self.header
                }
-        for i in range(len(self.send(req))):
-            if self.send(req)[i].get('name') == group_name:
-                return self.send(req)[i].get('id')
+        for i in range(len(self.send(req).json())):
+            if self.send(req).json()[i].get('name') == group_name:
+                return self.send(req).json()[i].get('id')
 
     def add_company_to_group(self, cp_code, group_name):
         """
@@ -65,7 +65,7 @@ class AiGrouping(ApiBase):
                         "group_id": self.inquire_group_id(group_name)},
                'headers': self.header
                }
-        self.send(req)
+        assert self.send(req).status_code == 200
 
     def del_group(self, group_name):
         """
@@ -78,4 +78,4 @@ class AiGrouping(ApiBase):
                'params': {"id": self.inquire_group_id(group_name)},
                'headers': self.header
                }
-        self.send(req)
+        assert self.send(req).status_code == 201
